@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<section>Canvas
+					<aside class="notes">
+						Hi, everyone. I am Oxana and I am going to say about HTML Canvas element.
+					</aside>
+				</section>
+					<section>
+						<h3>What is HTML Canvas?</h3>
+						<p>The HTML CANVAS element is used to draw graphics, on the fly, via scripting.</p>
+						<aside class="notes">
+							What is HTML Canvas?
+        					The HTML CANVAS element is used to draw graphics, on the fly, via scripting.
+        					The CANVAS element is only a container for graphics. 
+        					You must use a script to actually draw the graphics.
+						</aside>
+					</section>
+					<section>
+						<h3>The HTML CANVAS element is used to draw graphics on a web page</h3>
+						<img data-src="./images/CanvasExampels.png">
+						<aside class="notes">
+							As I sad before, the HTML CANVAS element is used to draw graphics on a web page.
+								The graphic on the slide is created with CANVAS.
+								We can see on this slide a red rectangle, a gradient rectangle, a multicolor rectangle, and a multicolor text.
+						</aside>
+					</section>
+				</section>
+				<section>
+						<h3>What can we draw with Canvas?</h3>
+						<p>HTML Canvas Can Draw Text</p>
+						<p>HTML Canvas Can Draw Graphics</p>
+						<p>HTML Canvas Can be Animated</p>
+						<p>HTML Canvas Can be Interactive</p>
+						<p>HTML Canvas Can be Used in Games</p>
+						<aside class="notes">
+							What can we draw with Canvas?
+							HTML Canvas Can Draw Text, Graphics. It could be animated. It can be interactive. And it could be used in games
+						</aside>
+			
+				</section>
+				<section>
+				<section>How to start?</section>
+				<section>
+					<h3>Step 1: Find the Canvas Element</h3>
+					<code>var canvas = document.getElementById("Canvas");</code>
+					<aside class="notes">
+							First of all, you must find the CANVAS element. This is done by using the HTML DOM method getElementById()
+					</aside>
+						
+				</section>
+				<section>
+						<h3>Step 2: Create a Drawing Object</h3>
+						<code>var ct = canvas.getContext("2d");</code>
+						<aside class="notes">
+							Secondly, you need a drawing object for the canvas.
+							The getContext() is a built-in HTML object, with properties and methods for drawing.
+					</aside>
+						</section>
+				<section>
+						<h3>Step 3: Now you can draw on the Canvas</h3>
+						<code>ct.fillStyle = "red"</code>
+						<p>fillRect(x,y,width,height)</p>
+							<img data-src="./images/redrect.png">
+							<aside class="notes">
+								Finally, you can draw on the canvas.
+								Set the fill style of the drawing object to the color
+								The fillStyle property can be a CSS color, a gradient, or a pattern. The default fillStyle is black.
+        						The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas.
+						</aside>
+				</section>
+
+				</section>
+				<section>
+						<section>HTML Canvas Coordinates</section>
+						<section>
+							<h3>HTML Canvas Coordinates</h3>
+							<img data-src="./images/coordinates.jpg">
+							<aside class="notes">
+								The HTML canvas is a two-dimensional grid.
+								The upper-left corner of the canvas has the coordinates (0,0).
+								The origin can be moved (or translated) with the translate() function, where positive numbers define the amount of pixels to move right and down.
+						</aside>
+						</section>
+						<section>
+							<h3>Geometric primitives</h3>
+							<img data-src="./images/primitives.png">
+							<p>line(x0, y0, x1, y1)</p>
+							<p>rect(x, y, width, height, {roundness: 0.0})</p>
+							<p>triangle(x1, y1, x2, y2, x3, y3)</p>
+							<p>ellipse(x, y, width, height)</p>
+							<p>arrow(x, y, width)</p>
+							<p>star(x, y, points=20, outer=100, inner=50)</p>
+							<aside class="notes">
+								Geometric primitives are the simplest shapes that can be drawn to the canvas: line, rectangle, triangle, ellipse, arrow and star.
+						</aside>
+						</section>
+						<section>
+							<h3>How to draw a Line</h3>
+							<code> 
+									<p>ct.moveTo(x, y);</p>
+									<p>ct.lineTo(x1, y1);</p>
+									<p>ct.stroke();</p>															
+								
+							</code>
+							<img data-src="./images/line.png">
+							<aside class="notes">
+								To draw a straight line on a canvas, use the following methods:
+         						moveTo(x,y) - defines the starting point of the line
+         						lineTo(x,y) - defines the ending point of the line
+         						To actually draw the line, you must use  stroke() method.
+						</aside>
+						</section>
+						<section>
+								<h3>How to draw a Circle</h3>
+							<code> 
+									<p>ct.beginPath();</p>
+									<p>ct.arc(x, y, radius, startangle, endangle);</p>
+									<p>ct.stroke();</p>
+													
+														
+							</code>
+							<img data-src="./images/circle.png">
+							<aside class="notes">
+								To draw a circle on a canvas, use the following methods:
+								beginPath() - begins a path
+        						arc(x,y,r,startangle,endangle) - creates an arc/curve. 
+        				        Set start angle to 0 and end angle to 2*Math.PI. 
+        						The x and y parameters define the x- and y-coordinates of the center of the circle.
+        						The r parameter defines the radius of the circle.
+						</aside>
+					
+						</section>
+						<section>
+								<h3>Canvas - Gradients</h3>
+								<h5>Linear gradient</h5>
+								<h5>Radial gradient</h5>
+								<p>createLinearGradient(x,y,x1,y1)</p>
+								<p>createRadialGradient(x,y,r,x1,y1,r1)</p>
+								<p>addColorStop()</p>
+								<aside class="notes">
+									Gradients can be used to fill rectangles, circles, lines, text, etc. 
+        							There are two different types of gradients:
+        							createLinearGradient(x,y,x1,y1) - creates a linear gradient
+        							createRadialGradient(x,y,r,x1,y1,r1) - creates a radial/circular gradient
+        							Once we have a gradient object, we must add two or more color stops.
+        							The addColorStop() method specifies the color stops, and its position along the gradient.
+         							Gradient positions can be anywhere between 0 to 1.
+							</aside>
+						</section>
+						<section>
+								<h3>Linear gradient</h3>
+								<img data-src="./images/linear-gradient.png">
+								<h3>Radial gradient</h3>
+								<img data-src="./images/radial-gradient.png">
+								<aside class="notes">
+									Here you can see some examples of Linear Gradient and Radial Gradient
+							</aside>
+						</section>
+				</section>
+				<section>
+						<section>HTML Canvas Text</section>
+						<section>
+							<h3>The most important property and methods are:</h3>
+							<ul>
+								<li>Font</li>
+								<li>FillText(text,x,y)</li>
+								<li>StrokeText(text,x,y)</li>
+							</ul>
+							<aside class="notes">
+								To draw text on a canvas, the most important property and methods are:
+        						font - defines the font properties for the text
+        						fillText(text,x,y) - draws "filled" text on the canvas
+        						strokeText(text,x,y) - draws text on the canvas (not filled)
+						</aside>
+						</section>
+						<section>
+								<h6>fillText()</h6>
+							<img data-src="./images/fillText.png">
+
+							<h6>strokeText()</h6>
+							<img data-src="./images/strokeText.png">
+							<aside class="notes">
+								On this slide you can see some examples of using this methods
+						</aside>
+						</section>
+						<section>
+								<h3>Add Color and Center Text</h3>
+							<img data-src="./images/colorText.png">
+							<aside class="notes">
+								Also you can specify color and put text in the center of the canvas area
+						</aside>
+						</section>
+					</section>
+						<section>
+							<section>Animation
+								<aside class="notes">
+									Animation is  moving element from one position to another and making smooth tranzition in the process.
+									Animations can be drawn on HTML5 canvas and animated through JavaScript. 
+								</aside>
+
+						
+							</section>
+							<section>
+									<h3>Step 1: Draw the object</h3>
+									<code>
+										<ul>
+											<li>ct.beginPath();</li>
+											<li>ct.arc(x,y,radius,0, Math.PI*2);</li>
+											<li>ct.strokeStyle = 'blue';</li>
+											<li>ct.stroke();</li>
+										</ul>								
+											
+									</code>
+									<img data-src="./images/anim1.png">
+									<aside class="notes">
+										First of all, you must draw element, which you want animated. For example, I draw a circle. 
+									</aside>
+										
+							</section>
+							<section>
+									<h3>Step 2: Use RequestAnimationFrame</h3>
+									<img data-src="./images/anim2-1.png">
+									<img data-src="./images/anim2-2.png">
+									<aside class="notes">
+										In order to create animation, we can use requestAnimationFrame to update and render the animation frame at the same rate that the browser repaints. 
+										Here I create animate function and increase x, y coordinates of the center of the circle.
+									</aside>
+								
+									
+							</section>
+							<section>
+									<h3>Step 3: Use ClearRect Method</h3>
+									<p>ct.clearRect(x,y,width,height);</p>
+									<p>Clearing the canvas between frames gives us our complete animation.</p>
+									<img data-src="./images/anim3.png">
+									<aside class="notes">
+										ClearRect Method
+        								The clearRect method allows us to clear a region of the destination canvas between animation frames.
+        								x	Clear rectangle x position
+        								y	Clear rectangle y position
+        								width	Clear rectangle width
+        								height	Clear rectangle height
+									</aside>
+																									
+							</section>
+							<section>
+									<h3>Animation in games</h3>
+									<img data-src="./images/game.png">
+									<aside class="notes">
+										We can also use animation on canvas in order to create a game.
+        								To create game we need to add a couple of event listeners for desktop (mousemove, mousedown, mouseclick and so on) and mobile (touchstart)
+									</aside>
+																
+							</section>
+
+
+
+						</section>
+			
+			</div>
+	
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
